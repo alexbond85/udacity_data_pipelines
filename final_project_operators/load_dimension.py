@@ -26,7 +26,7 @@ class LoadDimensionOperator(BaseOperator):
         if self.is_append:
             return insert_sql
         else:
-            return insert_sql + truncate_sql
+            return truncate_sql + insert_sql
 
     def execute(self, context):
         self.log.info(f"Loading data into {self.table}.")
